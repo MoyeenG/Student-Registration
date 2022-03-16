@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+</head>
+<body>
+    <h2>Add Student:</h2>
+    <form action="/stud_details/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="OK">
+    </form>
+
+    <hr>
+
+    <h2> Students already added:</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Department</th>
+            <th>Course</th>
+        </tr>
+        {% for d1 in details %}
+        <tr>
+            {% for d2 in d1 %}
+            <td>
+                {{ d2 }}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
